@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { useWeb3 } from "@3rdweb/hooks";
+import Dashboard from "./Dashboard";
 
 export default function Home() {
   const { address, connectWallet } = useWeb3();
   return (
     <Wrapper>
       {address ? (
-        <h2>{address}</h2>
+   <Dashboard address={address}/>
       ) : (
         <WalletConnect>
           <Button onClick={() => connectWallet("injected")}>
@@ -39,18 +40,18 @@ const Button = styled.div`
   border: 1px solid #282b2f;
   padding: 1rem;
   font-size: 1.3rem;
-  font-weight: 500;
+  font-weight: 700;
   border-radius: 0%.4rem;
-  background-color: #3773f5;
+  background-color: #bec2cb;
   color: #000;
   &:hover {
     cursor: pointer;
   }
 `;
 const Details = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   text-align: center;
   margin-top: 1rem;
   font-weight: 500;
-  color: white;
+  color: #bec2cb;
 `;
