@@ -28,6 +28,7 @@ const Title = styled.div`
   font-size: 2rem;
   font-weight: 600;
   flex: 1;
+  color: #bec2cb;
 `;
 
 const ButtonsContainer = styled.div`
@@ -35,8 +36,8 @@ const ButtonsContainer = styled.div`
 `;
 const Button = styled.div`
   border: 1px solid #282b2f;
-  padding: 1rem;
-  font-size: 1.3rem;
+  padding: 0.5rem;
+  font-size: 1.0rem;
   font-weight: 700;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 0%.4rem;

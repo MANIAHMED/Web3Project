@@ -1,27 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
-import Header from '../components/Header';
+import React from "react";
+import styled from "styled-components";
+import Header from "../components/Header";
+import Main from "../components/Main";
+import Sidebar from "../components/Sidebar";
 
-const Dashboard = ({address}) => {
+const Dashboard = ({ address }) => {
   return (
-<Wrapper>
-    <MainContainer>
-        <Header/>
-    </MainContainer>
-</Wrapper>  )
+    <Wrapper>
+      <Sidebar />
+      <MainContainer>
+        <Header />
+        <Main />
+      </MainContainer>
+    </Wrapper>
+  );
 };
 
 export default Dashboard;
 
-
 const Wrapper = styled.div`
-display: flex;
-height: 100vh;
-width: 100vw;
-background-color: #0a0b0d;
-color: #fff;
-`
+  display: flex;
+  height: 200vh;
+  width: 100vw;
+  background-color: #0a0b0d;
+  color: #fff;
+`;
 
 const MainContainer = styled.div`
-flex: 1;
-`
+  flex: 1;
+`;
