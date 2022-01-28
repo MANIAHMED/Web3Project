@@ -1,11 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { MdAccountBalanceWallet } from "react-icons/md";
+import { BsFillCircleFill } from "react-icons/bs";
 
-const Header = () => {
+const Header = ({walletaddress}) => {
     return (
         <Wrapper>
-            <Title>Assets</Title>
+            <Title> <MdAccountBalanceWallet/> Assets</Title>
             <ButtonsContainer>
+               <WalletLink>
+               <BsFillCircleFill size={10} color="green" />
+                 <WalletLinkTitle> Wallet Connected</WalletLinkTitle>
+                 <WalletAddress>{walletaddress.slice(0,7)}...{walletaddress.slice(30,)}</WalletAddress>
+               </WalletLink>
                 <Button style={{backgroundColor: "#990f02"}}>Buy/Sell</Button>
                 <Button style={{backgroundColor: "#028a0f"}}>Send/Recieve</Button>
             </ButtonsContainer>
@@ -47,3 +54,25 @@ const Button = styled.div`
     cursor: pointer;
   }
 `;
+const WalletLink = styled.div`
+font-size: 0.8rem;
+border: 1px solid #282b2f;
+border-radius: 50rem;
+font-size: 1.2rem;
+margin-right: 1rem;
+padding: 0 1rem;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+`
+
+const WalletLinkTitle = styled.div`
+font-size: 1.1rem;
+margin-bottom: 0.3rem;
+color: #27ad27;
+font-weight: 600;
+`
+const WalletAddress = styled.div`
+font-size: 0.8rem;
+`

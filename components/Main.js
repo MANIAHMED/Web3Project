@@ -1,22 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
-import Portfolio from './Portfolio';
+import React from "react";
+import styled from "styled-components";
+import Portfolio from "./Portfolio";
+import Promos from "./Promos";
 
-const Main = () => {
-  return <Wrapper>
-      <Portfolio />
-
-  </Wrapper>;
+const Main = ({walletaddress, sanityTokens , thirdWebToken}) => {
+  return (
+    <Wrapper>
+      <Portfolio  walletaddress={walletaddress} sanityTokens={sanityTokens} thirdWebToken={thirdWebToken}  />
+    </Wrapper>
+  );
 };
 
 export default Main;
 
 const Wrapper = styled.div`
-display: flex;
-max-height: calc(100vh - 64px);
-overflow: scroll;
+  display: flex;
+  overflow: hidden;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
-& div{
+  & div {
     border-radius: 0.4rem;
-}
-`
+  }
+`;

@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Wrapper>
       {address ? (
-   <Dashboard address={address}/>
+        <Dashboard address={address} />
       ) : (
         <WalletConnect>
           <Button onClick={() => connectWallet("injected")}>
@@ -49,7 +49,7 @@ const Button = styled.div`
   }
 `;
 const Details = styled.div`
-  font-size: 1.0rem;
+  font-size: 1rem;
   text-align: center;
   margin-top: 1rem;
   font-weight: 500;

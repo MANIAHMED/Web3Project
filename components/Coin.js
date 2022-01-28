@@ -3,46 +3,47 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import Image from "next/image";
 import styled from "styled-components";
 
-const Coin = ({coin}) => {
-  return <Wrapper>
+const Coin = ({ coin }) => {
+  return (
+    <Wrapper>
       <div>
-          <div style={{flex:3}}>
-              <NameCol>
-                  <CoinIcon>
-                      <Image src={coin.logo} alt="coinname"></Image>
-                  </CoinIcon>
-                  <div>
-                      <Primary>{coin.name}</Primary>
-                      <Secondary>{coin.sign}</Secondary>
-                  </div>
-              </NameCol>
-
+        <div style={{ flex: 3 }}>
+          <NameCol>
+            <CoinIcon>
+              <Image src={coin.logo} alt="coinname"></Image>
+            </CoinIcon>
+            <div>
+              <Primary>{coin.name}</Primary>
+              <Secondary>{coin.sign}</Secondary>
+            </div>
+          </NameCol>
+        </div>
+        <div style={{ flex: 2 }}>
+          <Primary>
+            {"$"}
+            {coin.balanceUsd}
+          </Primary>
+          <Secondary>
+            {coin.balanceCoin} {coin.sign}
+          </Secondary>
+        </div>
+        <div style={{ flex: 1 }}>
+          <Primary>
+            {"$"}
+            {coin.priceUsd}
+          </Primary>
+          <div style={{ color: coin.change < 0 ? "red" : "green" }}>
+            {coin.change > 0 && "+"}
+            {coin.change}%
           </div>
-          <div style={{flex:2}}>
-              <Primary>{'$'}{coin.balanceUsd}</Primary>
-              <Secondary>{coin.balanceCoin} {coin.sign}</Secondary>
-
-          </div>
-          <div style={{flex:1}}>
-              <Primary>
-                  {'$'}{coin.priceUsd}
-              </Primary>
-              <div style={{color:coin.change < 0 ? 'red' :'green'}}>
-{coin.change > 0 && '+'}
-{coin.change}%
-              </div>
-
-          </div>
-          <div style={{flex:1}}>
-              {coin.allocation}%
-
-          </div>
-          <div style={{flex:0}}>
-              <BsThreeDotsVertical/>
-
-          </div>
+        </div>
+        <div style={{ flex: 1 }}>{coin.allocation}%</div>
+        <div style={{ flex: 0 }}>
+          <BsThreeDotsVertical />
+        </div>
       </div>
-  </Wrapper>
+    </Wrapper>
+  );
 };
 
 export default Coin;
@@ -67,15 +68,15 @@ const NameCol = styled.div`
 `;
 
 const CoinIcon = styled.div`
-width: 1.8rem;
-margin-right: 1rem;
-`
+  width: 1.8rem;
+  margin-right: 1rem;
+`;
 
 const Primary = styled.div`
-margin-bottom: 0.1rem;
-`
+  margin-bottom: 0.1rem;
+`;
 
 const Secondary = styled.div`
-color: #8a919e;
-font-size:  0.8rem;
-`
+  color: #8a919e;
+  font-size: 0.8rem;
+`;

@@ -1,28 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import CoinbaseLogo from "../assets/cb-logo.png";
-import Image from "next/image";
 import { MdSpaceDashboard } from "react-icons/md";
-import {navItems} from "../static/navItems";
+import { navItems } from "../static/navItems";
 
 const Sidebar = () => {
+  const [activeIcon, setactiveIcon] = useState(navItems[0].title);
+
   return (
     <Wrapper>
       <LogoContainer>
         <Logo>
-          <MdSpaceDashboard  size={34}/>
+          <MdSpaceDashboard size={34} />
         </Logo>
       </LogoContainer>
       <NavItemsContainer>
-{navItems.map((item,index) =>(
-  <NavItem key={index}>
-    <NavIcon>
-      {item.icon}
-    </NavIcon>
-    <NavTitle>{item.title}</NavTitle>
-
-  </NavItem>
-))}
+        {navItems.map((item, index) => (
+          <NavItem key={index} onClick={() => setactiveIcon(item.title)}>
+            <NavIcon style={{ color: item.title === activeIcon && "green" }}>
+              {item.icon}
+            </NavIcon>
+            <NavTitle>{item.title}</NavTitle>
+          </NavItem>
+        ))}
       </NavItemsContainer>
     </Wrapper>
   );
@@ -32,7 +31,7 @@ export default Sidebar;
 
 const Wrapper = styled.div`
   height: calc(200vh);
-  border-right: 1px solid #282b2f;
+  border-right: 1px solid #ccd0d3;
   width: 20%;
   padding: 0 1rem;
 `;
@@ -77,6 +76,5 @@ const NavIcon = styled.div`
   place-items: center;
 `;
 const NavTitle = styled.div`
-color: #bec2cb;
-
-`
+  color: #bec2cb;
+`;
